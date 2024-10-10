@@ -11,7 +11,7 @@
 <ul>
     <?php
         foreach ($stories as $story) {
-            include __DIR__ . "/partials/stories.php";
+            include __DIR__ . "/../partials/stories.php";
         };
     ?>
 </ul>

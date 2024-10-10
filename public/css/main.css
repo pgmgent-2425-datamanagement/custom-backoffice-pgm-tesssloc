@@ -36,3 +36,9 @@ img {
 .story__content {
     width: 15rem;
 }
+
+.edit_form {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
