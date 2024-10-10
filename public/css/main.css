@@ -5,6 +5,7 @@ body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.5;
 }
+
 img {
     max-width: 100%;
     height: auto;
@@ -14,15 +15,24 @@ img {
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-left: -2.5rem;
 }
 
 .story__item {
     background-color: rgb(204, 198, 198);
-    width: 10rem;
     height: 8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1rem;
     text-align: center;
+    border-radius: 1.5rem;
+}
+
+.story__title {
+    width: 10rem;
+}
+
+.story__content {
+    width: 15rem;
 }

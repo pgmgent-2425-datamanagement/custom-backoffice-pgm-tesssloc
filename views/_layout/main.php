@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="/css/main.css?v=<?php if( $_ENV['DEV_MODE'] == "true" ) { echo time(); }; ?>">
 </head>
 <body>
-    <div class="brand">BrandName</div>
+    <h1 class="brand">StoryShare</h1>
 
     <nav>
         <a href="/">Stories</a>
+        <a href="/">Users</a>
     </nav>
 
     <main>
