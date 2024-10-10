@@ -9,3 +9,20 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.story {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.story__item {
+    background-color: rgb(204, 198, 198);
+    width: 10rem;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+}

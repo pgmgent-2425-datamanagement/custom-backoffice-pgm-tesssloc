@@ -1,6 +1,4 @@
-<h1>Base MVC</h1>
-<p>Welcome to this base mvc project.</p>
-<p>test</p>
+<h1>Backoffice</h1>
 <h2>Stories</h2>
 <ul>
     <?php
