@@ -5,7 +5,7 @@
 <ul>
     <?php
         foreach ($stories as $story) {
-            echo "<li>$story->title</li>" . PHP_EOL;
+            include __DIR__ . "/partials/stories.php";
         };
     ?>
 </ul>
