@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Story;
+use App\Models\User;
 
 class StoryController extends BaseController {
 
@@ -20,6 +21,9 @@ class StoryController extends BaseController {
         // find the story
         $story = Story::find($id);
 
+        // get all users
+        $users = User::all();
+
         // edit the story
         if(isset($_POST['title'])) {
             $story->title = $_POST['title'];
@@ -27,12 +31,13 @@ class StoryController extends BaseController {
             $story->user_id = $_POST['user_id'];
             $story->date_posted = $_POST['date_posted'];
             $story->save();
-        }
+        };
 
         // load the view
         self::loadView('/stories/edit', [
             'title' => 'Edit story',
-            'story' => $story
+            'story' => $story,
+            'users' => $users
         ]);
     }
 
