@@ -6,7 +6,8 @@
     <select name="user_id" id="users">
         <?php
             foreach ($users as $user) {
-                echo '<option value="' . $user->id . '">' . $user->username . '</option>';
+                $selected = ($user->id == $story->user_id) ? 'selected' : '';
+                echo '<option value="' . $user->id . '" ' . $selected . '>' . $user->username . '</option>';
             };
         ?>
     </select>
