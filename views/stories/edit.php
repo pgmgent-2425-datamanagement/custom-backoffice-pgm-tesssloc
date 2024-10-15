@@ -4,6 +4,6 @@
     <input type="text" name="title" value="<?=$story->title?>"></input>
     <input type="text" name="content" value="<?=$story->content?>"></input>
     <input type="text" name="user_id" value="<?=$story->user_id?>"></input>
-    <input type="date" name="date_posted" value="<?=$story->date_posted?>"></input>
+    <input type="datetime" name="date_posted" value="<?=$story->date_posted?>"></input>
     <input type="submit" value="Save">
 </form>

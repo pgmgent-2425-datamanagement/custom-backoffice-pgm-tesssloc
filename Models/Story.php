@@ -2,7 +2,7 @@
 namespace App\Models;
 
 class Story extends BaseModel {
-    // A public function to update the new values of an object
+    // updates the new values of an object
     public function save() {
         $sql = "UPDATE stories SET title = :title, content = :content, user_id = :user_id, date_posted = :date_posted WHERE id = :id";
 
