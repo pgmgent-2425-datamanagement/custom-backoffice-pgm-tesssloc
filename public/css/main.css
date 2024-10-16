@@ -11,14 +11,14 @@ img {
     height: auto;
 }
 
-.story {
+.card {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-left: -2.5rem;
 }
 
-.story__item {
+.card__item {
     background-color: rgb(204, 198, 198);
     height: 8rem;
     display: flex;
@@ -29,11 +29,11 @@ img {
     border-radius: 1.5rem;
 }
 
-.story__title {
+.card__title {
     width: 10rem;
 }
 
-.story__content {
+.card__content {
     width: 15rem;
 }
 
