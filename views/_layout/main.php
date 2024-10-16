@@ -11,8 +11,8 @@
     <h1 class="brand">StoryShare</h1>
 
     <nav>
-        <a href="/">Stories</a>
-        <a href="/">Users</a>
+        <a href="/stories">Stories</a>
+        <a href="/users">Users</a>
     </nav>
 
     <main>

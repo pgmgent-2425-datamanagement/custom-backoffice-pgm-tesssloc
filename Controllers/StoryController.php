@@ -45,7 +45,7 @@ class StoryController extends BaseController {
         $story = Story::deleteById($id);
 
         // redirect to the list of stories
-        //header('Location: /stories');
+        header('Location: /stories');
     }
 
     public static function get_stories() {
