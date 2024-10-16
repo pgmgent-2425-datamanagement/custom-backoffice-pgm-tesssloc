@@ -24,7 +24,7 @@ class StoryController extends BaseController {
         $users = User::all();
 
         // edit the story
-        if(isset($_POST['title'])) {
+        if(isset($_POST['title']) && isset($_POST['content']) && isset($_POST['user_id']) && isset($_POST['date_posted'])) {
             $story->title = $_POST['title'];
             $story->content = $_POST['content'];
             $story->user_id = $_POST['user_id'];

@@ -20,12 +20,15 @@ class UserController extends BaseController {
         $user = User::find($id);
 
         // edit the user
-        if(isset($_POST['name'])) {
-            $user->name = $_POST['name'];
-            $user->email = $_POST['email'];
+        if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['username']) && isset($_POST['email']) && isset($_POST['profilePic'])) {
+            $user->firstName = $_POST['firstName'];
+            $user->lastName = $_POST['lastName'];
+            $user->username = $_POST['username'];
             $user->password = $_POST['password'];
+            $user->email = $_POST['email'];
+            $user->profilePic = $_POST['profilePic'];
             $user->save();
-        };
+        }
 
         // load the view
         self::loadView('/users/edit', [
