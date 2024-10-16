@@ -17,7 +17,6 @@ class StoryController extends BaseController {
     }
 
     public static function edit ($id) {
-        print_r($id);
         // find the story
         $story = Story::find($id);
 
@@ -39,6 +38,14 @@ class StoryController extends BaseController {
             'story' => $story,
             'users' => $users
         ]);
+    }
+
+    public static function delete ($id) {
+        // delete the story
+        $story = Story::deleteById($id);
+
+        // redirect to the list of stories
+        //header('Location: /stories');
     }
 
     public static function get_stories() {
