@@ -14,8 +14,6 @@ class StoryController extends BaseController {
 
         $user_id = $_GET['user_id'] ?? '';
 
-        print_r($user_id);
-
         // get stories
         $stories = Story::search($search, $user_id);
         

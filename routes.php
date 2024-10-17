@@ -3,6 +3,9 @@
 //$router->get('/', function() { echo 'Dit is de index vanuit de route'; });
 $router->setNamespace('\App\Controllers');
 
+// home routes
+$router->get('/', 'HomeController@index');
+
 // story routes
 $router->get('/stories', 'StoryController@list');
 $router->get('/stories/(\d+)', 'StoryController@detail');
