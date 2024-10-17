@@ -1,8 +1,12 @@
 <h2>Stories</h2>
 
-<form>
+<form action="/stories" method="GET">
+    <?php if (!empty($_GET['user_id'])): ?>
+        <input type="hidden" name="user_id" value="<?= htmlspecialchars($_GET['user_id']) ?>">
+    <?php endif; ?>
+
     <label for="search">Zoek een verhaal</label>
-    <input type="text" name="search" placeholder="Zoekterm" value="<?= $search ?>">
+    <input type="text" name="search" placeholder="Zoekterm" value="<?= htmlspecialchars($search) ?>">
     <input type="submit" value="zoeken">
 </form>
 <ul>

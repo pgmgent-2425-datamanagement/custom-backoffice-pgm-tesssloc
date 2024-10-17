@@ -12,14 +12,19 @@ class StoryController extends BaseController {
         // get the search term
         $search = $_GET['search'] ?? '';
 
+        $user_id = $_GET['user_id'] ?? '';
+
+        print_r($user_id);
+
         // get stories
-        $stories = Story::search($search);
+        $stories = Story::search($search, $user_id);
         
         // load view
         self::loadView('/stories/home', [
             'title' => 'stories',
             'stories' => $stories,
-            'search' => $search
+            'search' => $search,
+            'user_id' => $user_id
         ]);
     }
 

@@ -36,6 +36,7 @@ class UserController extends BaseController {
             'user' => $user
         ]);
     }
+    
     public static function add () {
         // load view
         self::loadView('/users/add', [

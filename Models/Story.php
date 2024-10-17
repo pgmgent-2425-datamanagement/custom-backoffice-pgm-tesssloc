@@ -32,14 +32,20 @@ class Story extends BaseModel {
     }
 
     // searches in stories
-    protected function search($search) {
+    protected function search($search, $id) {
         $sql = 'SELECT * FROM `' . $this->table . '`
-            WHERE title LIKE :search Or content LIKE :search
+            WHERE (title LIKE :search Or content LIKE :search)
         ';
+
+        $params = [':search' => '%' . $search . '%'];
+
+        if (!empty($id)) {
+            $sql .= ' AND user_id = :id';
+            $params[':id'] = $id;
+        }
+
         $pdo_statement = $this->db->prepare($sql);
-        $pdo_statement->execute([
-            ':search' => '%' . $search . '%',
-        ]);
+        $pdo_statement->execute($params);
 
         $db_items = $pdo_statement->fetchAll(); 
         

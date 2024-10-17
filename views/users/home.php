@@ -1,7 +1,3 @@
-<?php
-    $search = $_GET['search'] ?? '';
-?>
-
 <h2>Users</h2>
 
 <form>

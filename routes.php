@@ -32,6 +32,4 @@ $router->post('/users/delete/(\d+)', 'UserController@delete');
 $router->get('/users/add', 'UserController@add');
 $router->post('/users/add', 'UserController@store');
 
-$router->get('/users/(\d+)/stories', 'UserController@get_user_stories');
-
 $router->get('/api/get_users', 'UserController@get_users');
