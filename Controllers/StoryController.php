@@ -48,6 +48,15 @@ class StoryController extends BaseController {
         header('Location: /stories');
     }
 
+    public static function detail($id) {
+        $story = Story::find($id);
+
+        self::loadView('/stories/detail', [
+            'title' => 'Story Detail',
+            'story' => $story
+        ]);
+    }
+
     public static function get_stories() {
         $stories = Story::all();
         header("Content-type:application/json");
