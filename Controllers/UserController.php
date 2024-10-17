@@ -36,6 +36,30 @@ class UserController extends BaseController {
             'user' => $user
         ]);
     }
+    public static function add () {
+        // load view
+        self::loadView('/users/add', [
+            'title' => 'Add User'
+        ]);
+    }
+
+    public static function store () {
+        // add the user
+        $user = new User();
+        $user->firstName = $_POST['firstName'];
+        $user->lastName = $_POST['lastName'];
+        $user->username = $_POST['username'];
+        $user->password = $_POST['password'];
+        $user->email = $_POST['email'];
+        $user->profilePic = $_POST['profilePic'];
+        $success = $user->add();
+
+        if($success) {
+            header('Location: /users');
+        } else {
+            echo 'error';
+        }
+    }
 
     public static function delete ($id) {
         // delete the user

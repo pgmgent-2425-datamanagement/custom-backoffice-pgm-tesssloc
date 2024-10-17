@@ -15,3 +15,5 @@
         };
     ?>
 </ul>
+
+<a href="/users/add">Add a user</a>

@@ -17,4 +17,21 @@ class User extends BaseModel {
             ':id' => $this->id,
         ]);
     }
+
+        // adds a new user
+        public function add() {
+            $sql = "INSERT INTO users (`firstName`, `lastName`, `username`, `password`, `email`, `profilePic`) VALUES (:firstName, :lastName, :username, :password, :email, :profilePic)";
+        
+            $pdo_statement = $this->db->prepare($sql);
+            $success = $pdo_statement->execute([
+            ':firstName' => $this->firstName,
+            ':lastName' => $this->lastName,
+            ':username' => $this->username,
+            ':password' => $this->password,
+            ':email' => $this->email,
+            ':profilePic' => $this->profilePic,
+            ]);
+        
+            return $success;
+        }
 }
