@@ -8,11 +8,18 @@ use App\Models\User;
 class StoryController extends BaseController {
 
     public static function list () {
-        $stories = Story::all();
+        
+        // get the search term
+        $search = $_GET['search'] ?? '';
 
+        // get stories
+        $stories = Story::search($search);
+        
+        // load view
         self::loadView('/stories/home', [
             'title' => 'stories',
-            'stories' => $stories
+            'stories' => $stories,
+            'search' => $search
         ]);
     }
 
@@ -40,6 +47,34 @@ class StoryController extends BaseController {
         ]);
     }
 
+    
+    public static function add () {
+        // get all users
+        $users = User::all();
+
+        // load view
+        self::loadView('/stories/add', [
+            'title' => 'Add story',
+            'users' => $users
+        ]);
+    }
+
+    public static function store () {
+        // add the story
+        $story = new Story();
+        $story->title = $_POST['title'];
+        $story->content = $_POST['content'];
+        $story->user_id = $_POST['user_id'];
+        $story->date_posted = $_POST['date_posted'];
+        $succes = $story->add();
+
+        if($succes) {
+            header('Location: /stories');
+        } else {
+            echo 'error';
+        }
+    }
+
     public static function delete ($id) {
         // delete the story
         $story = Story::deleteById($id);
@@ -52,7 +87,7 @@ class StoryController extends BaseController {
         $story = Story::find($id);
 
         self::loadView('/stories/detail', [
-            'title' => 'Story Detail',
+            'title' => 'Story detail',
             'story' => $story
         ]);
     }
