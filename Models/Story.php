@@ -32,7 +32,7 @@ class Story extends BaseModel {
     }
 
     // searches in stories
-    protected function search($search, $id) {
+    protected function search($search, $id, $sort) {
         $sql = 'SELECT * FROM `' . $this->table . '`
             WHERE (title LIKE :search Or content LIKE :search)
         ';
@@ -43,6 +43,13 @@ class Story extends BaseModel {
             $sql .= ' AND user_id = :id';
             $params[':id'] = $id;
         };
+
+        if ($sort === 'date_posted_r') {
+            $sql .= ' ORDER BY date_posted ASC';
+        }
+        if ($sort !== 'date_posted_r') {
+            $sql .= ' ORDER BY date_posted DESC';
+        }
 
         $pdo_statement = $this->db->prepare($sql);
         $pdo_statement->execute($params);

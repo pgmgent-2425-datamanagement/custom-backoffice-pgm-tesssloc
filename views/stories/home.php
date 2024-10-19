@@ -10,6 +10,7 @@
 
     <label for="sort">Sorteer op:</label>
     <select name="sort" id="sort">
+        <option value="standard"></option>
         <option value="alphabetical">Alfabetisch titel a-z</option>
         <option value="alphabetical_r">Alfabetisch titel z-a</option>
         <option value="date_posted">Aanmaakdatum nieuw-oud</option>
