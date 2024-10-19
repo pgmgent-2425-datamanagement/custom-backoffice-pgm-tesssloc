@@ -5,16 +5,19 @@
         <input type="hidden" name="user_id" value="<?= $_GET['user_id'] ?>">
     <?php endif; ?>
 
-    <label for="search">Zoek een verhaal:</label>
+    <label for="search">Zoek:</label>
     <input type="text" name="search" placeholder="Zoekterm" value="<?= $search ?>">
+
+    <label for="sort">Sorteer op:</label>
+    <select name="sort" id="sort">
+        <option value="alphabetical">Alfabetisch titel a-z</option>
+        <option value="alphabetical_r">Alfabetisch titel z-a</option>
+        <option value="date_posted">Aanmaakdatum nieuw-oud</option>
+        <option value="date_posted_r">Aanmaakdatum oud-nieuw</option>
+    </select>
+
     <input type="submit" value="zoeken">
 </form>
-<select name="sort" id="sort">
-    <option value="alphabetical">Alfabetisch titel a-z</option>
-    <option value="alphabetical">Alfabetisch titel z-a</option>
-    <option value="date_posted">Aanmaakdatum nieuw-oud</option>
-    <option value="date_posted">Aanmaakdatum oud-nieuw</option>
-</select>
 <ul>
     <?php
         foreach ($stories as $story) {

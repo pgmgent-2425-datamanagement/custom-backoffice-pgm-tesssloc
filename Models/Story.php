@@ -42,7 +42,7 @@ class Story extends BaseModel {
         if (!empty($id)) {
             $sql .= ' AND user_id = :id';
             $params[':id'] = $id;
-        }
+        };
 
         $pdo_statement = $this->db->prepare($sql);
         $pdo_statement->execute($params);

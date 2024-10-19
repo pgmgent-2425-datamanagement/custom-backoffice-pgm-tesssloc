@@ -14,8 +14,20 @@ class StoryController extends BaseController {
 
         $user_id = $_GET['user_id'] ?? '';
 
+        $sort = $_GET['sort'] ?? '';
+
+        print_r($sort);
+
         // get stories
         $stories = Story::search($search, $user_id);
+
+        if ($sort === 'alphabetical') {
+            sort($stories);
+        } else
+        if ($sort === 'alphabetical_r') {
+            rsort($stories);
+        }
+        
         
         // load view
         self::loadView('/stories/home', [
