@@ -10,11 +10,11 @@
 
     <label for="sort">Sorteer op:</label>
     <select name="sort" id="sort">
-        <option value="standard"></option>
-        <option value="alphabetical">Alfabetisch titel a-z</option>
-        <option value="alphabetical_r">Alfabetisch titel z-a</option>
-        <option value="date_posted">Aanmaakdatum nieuw-oud</option>
-        <option value="date_posted_r">Aanmaakdatum oud-nieuw</option>
+        <option value="standard" <?= $sort === 'standard' ? 'selected' : '' ?>></option>
+        <option value="alphabetical" <?= $sort === 'alphabetical' ? 'selected' : '' ?>>Alfabetisch titel a-z</option>
+        <option value="alphabetical_r" <?= $sort === 'alphabetical_r' ? 'selected' : '' ?>>Alfabetisch titel z-a</option>
+        <option value="date_posted" <?= $sort === 'date_posted' ? 'selected' : '' ?>>Aanmaakdatum nieuw-oud</option>
+        <option value="date_posted_r" <?= $sort === 'date_posted_r' ? 'selected' : '' ?>>Aanmaakdatum oud-nieuw</option>
     </select>
 
     <input type="submit" value="zoeken">

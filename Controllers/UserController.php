@@ -45,10 +45,7 @@ class UserController extends BaseController {
     }
 
     public static function store () {
-
-        print_r($_POST);
-        print_r($_FILES);
-
+        
         $name = $_FILES['profilePic']['name'];
         $tmp = $_FILES['profilePic']['tmp_name'];
         $to_folder = BASE_DIR . '/public/images/';
