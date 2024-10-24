@@ -36,3 +36,10 @@ $router->get('/users/add', 'UserController@add');
 $router->post('/users/add', 'UserController@store');
 
 $router->get('/api/get_users', 'UserController@get_users');
+
+// file routes
+
+$router->get('/files', 'FileController@list');
+
+$router->get('/files/delete/(.+)', 'FileController@delete');
+$router->post('/files/delete/(.+)', 'FileController@delete');

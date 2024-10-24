@@ -10,5 +10,4 @@ class HomeController extends BaseController {
             'title' => 'Homepage'
         ]);
     }
-
 }

@@ -14,6 +14,7 @@
         <a href="/">Home</a>
         <a href="/stories">Stories</a>
         <a href="/users">Users</a>
+        <a href="/files">Files</a>
     </nav>
 
     <main>
