@@ -34,4 +34,19 @@ class User extends BaseModel {
         
             return $success;
         }
+
+        protected function allWithStories () {
+
+            $sql = 'SELECT *, count(user_id) as numberOfStories FROM users
+                LEFT JOIN stories ON stories.user_id = users.id
+                group by users.id
+                ;
+            ';
+            $pdo_statement = $this->db->prepare($sql);
+            $pdo_statement->execute();
+
+            $db_items = $pdo_statement->fetchAll(); 
+            
+            return self::castToModel($db_items);
+        }
 }
