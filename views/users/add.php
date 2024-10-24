@@ -1,5 +1,5 @@
 <h2>Add</h2>
-<form method="POST" action="/users/add" class="add_form">
+<form method="POST" action="/users/add" class="add_form" enctype="multipart/form-data">
     <div>
         <label for="firstName">First Name</label>
         <input type="text" name="firstName" placeholder="First Name"></input>
@@ -22,7 +22,7 @@
     </div>
     <div>
         <label for="profilePic">Profile Picture URL</label>
-        <input type="text" name="profilePic" placeholder="Profile Picture URL"></input>
-    </div>
+        <input type="file" name="profilePic" accept="image/*"></input>
+    </div>>
     <input type="submit" value="Add">
 </form>

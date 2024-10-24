@@ -45,6 +45,18 @@ class UserController extends BaseController {
     }
 
     public static function store () {
+
+        print_r($_POST);
+        print_r($_FILES);
+
+        $name = $_FILES['profilePic']['name'];
+        $tmp = $_FILES['profilePic']['tmp_name'];
+        $to_folder = BASE_DIR . '/public/images/';
+
+        $uuid = uniqid() . '-' . $name;
+
+        move_uploaded_file($tmp, $to_folder . $uuid);
+        
         // add the user
         $user = new User();
         $user->firstName = $_POST['firstName'];
@@ -52,7 +64,7 @@ class UserController extends BaseController {
         $user->username = $_POST['username'];
         $user->password = $_POST['password'];
         $user->email = $_POST['email'];
-        $user->profilePic = $_POST['profilePic'];
+        $user->profilePic = $uuid;
         $success = $user->add();
 
         if($success) {
