@@ -19,7 +19,7 @@
 
     <input type="submit" value="zoeken">
 </form>
-<ul>
+<ul class="card_list">
     <?php
         foreach ($stories as $story) {
             include __DIR__ . "/../partials/stories.php";

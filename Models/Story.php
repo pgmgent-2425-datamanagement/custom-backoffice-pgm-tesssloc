@@ -58,4 +58,9 @@ class Story extends BaseModel {
         
         return self::castToModel($db_items);
     }
+
+    // gets the story's user
+    public function getUser() {
+        return User::find($this->user_id);
+    }
 }

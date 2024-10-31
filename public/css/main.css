@@ -23,6 +23,27 @@ h1 {
     text-align: center;
 }
 
+/* navigation */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: green;
+    padding: 1rem;
+    border-radius: 0.2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
 /* cards */
 
 .card_list {
@@ -61,7 +82,7 @@ h1 {
 }
 
 .card__item {
-    background-color: rgb(204, 198, 198);
+    background-color: #c1e2be ;
     height: 8rem;
     width: 80%;
     display: flex;
@@ -72,12 +93,28 @@ h1 {
     border-radius: 1.5rem;
 }
 
-.card__title {
-    width: 10rem;
+.card_link {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
 }
 
-.card__content {
-    width: 15rem;
+@media (min-width: 65rem) {
+    .card_link {
+        flex-direction: column;
+    }
+}
+
+.card_link__inner {
+    background-color: #c1e2be;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+    color: black;
+    text-decoration: none;
+}
+
+.card_link__inner:hover {
+    text-decoration: underline;
 }
 
 /* edit */
@@ -90,6 +127,12 @@ h1 {
 }
 
 /* buttons */
+
+.buttons {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+}
 
 .button {
     padding: 0.2rem 0.5rem;

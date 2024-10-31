@@ -8,7 +8,6 @@ use App\Models\User;
 class StoryController extends BaseController {
 
     public static function list () {
-        
         // get the search term
         $search = $_GET['search'] ?? '';
 
@@ -27,14 +26,19 @@ class StoryController extends BaseController {
         if ($sort === 'alphabetical_r') {
             rsort($stories);
         }
-        
+
+        // get user for story
+        foreach ($stories as $story) {
+            $story->user = $story->getUser();
+        }
+
         // load view
         self::loadView('/stories/home', [
             'title' => 'stories',
             'stories' => $stories,
             'search' => $search,
             'user_id' => $user_id,
-            'sort' => $sort
+            'sort' => $sort,
         ]);
     }
 
