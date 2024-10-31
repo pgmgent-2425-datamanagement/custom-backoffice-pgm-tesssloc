@@ -12,6 +12,17 @@ img {
     border-radius: 0.2rem;
 }
 
+footer {
+    padding: 4rem 0rem 1rem;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: green;
+    text-align: center;
+}
+
 /* cards */
 
 .card_list {

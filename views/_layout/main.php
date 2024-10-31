@@ -22,7 +22,7 @@
     </main>
     
     <footer>
-        &copy; <?= date('Y'); ?> - BrandName
+        &copy; <?= date('Y'); ?> - StoryShare
     </footer>
 </body>
 </html>

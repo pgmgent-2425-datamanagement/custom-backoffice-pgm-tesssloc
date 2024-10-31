@@ -79,6 +79,15 @@ class UserController extends BaseController {
         header('Location: /users');
     }
 
+    public static function detail($id) {
+        $user = User::find($id);
+
+        self::loadView('/users/detail', [
+            'title' => 'User detail',
+            'user' => $user
+        ]);
+    }
+
     public static function get_users() {
         $users = User::all();
         header("Content-type:application/json");
