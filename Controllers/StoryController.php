@@ -15,8 +15,6 @@ class StoryController extends BaseController {
 
         $sort = $_GET['sort'] ?? '';
 
-        print_r($sort);
-
         // get stories
         $stories = Story::search($search, $user_id, $sort);
 
