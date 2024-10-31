@@ -17,10 +17,22 @@ footer {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
     color: green;
     text-align: center;
+}
+
+@media (min-width: 20rem) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 30rem) {
+    h1 {
+        font-size: 4rem;
+    }
 }
 
 /* navigation */
@@ -32,12 +44,26 @@ nav {
     background-color: green;
     padding: 1rem;
     border-radius: 0.2rem;
+    flex-direction: column;
+}
+
+@media (min-width: 20rem) {
+    nav {
+        flex-direction: row;
+    }
 }
 
 nav a {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
+    padding-bottom: 0.5rem;
+}
+
+@media (min-width: 20rem) {
+    nav a {
+        padding-bottom: 0rem;
+    }
 }
 
 nav a:hover {
@@ -69,6 +95,7 @@ nav a:hover {
     flex-direction: column;
     margin-bottom: 2rem;
     padding: 1rem;
+    border-radius: 1rem;
 }
 
 @media (min-width: 65rem) {
@@ -117,8 +144,27 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* file card */
+
+.file_card__img {
+    border-radius: 0.5rem;
+}
+
 /* edit */
 
+.file_card {
+    width: 100%;
+}
+
+@media (min-width: 50rem) {
+    .file_card {
+        flex-direction: row;
+        margin-bottom: 2rem;
+        justify-content: space-between;
+        padding: 1rem;
+        width: 100%;
+    }
+}
 
 .edit_form {
     display: flex;
