@@ -172,6 +172,16 @@ nav a:hover {
     flex-direction: column;
 }
 
+.edit_form input {
+    padding: 0.4rem;
+    font-size: 1rem;
+}
+
+.edit_form select {
+    padding: 0.4rem;
+    font-size: 1rem;
+}
+
 /* buttons */
 
 .buttons {
@@ -239,4 +249,9 @@ nav a:hover {
     .search_form {
         flex-direction: row;
     }
+}
+
+/* detail */
+.detail__posted {
+    padding-bottom: 1rem;
 }

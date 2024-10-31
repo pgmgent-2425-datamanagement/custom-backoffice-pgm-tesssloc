@@ -11,5 +11,5 @@
         ?>
     </select>
     <input type="datetime" name="date_posted" value="<?=$story->date_posted?>"></input>
-    <input type="submit" value="Save">
+    <input class="button submit_button" type="submit" value="Save">
 </form>

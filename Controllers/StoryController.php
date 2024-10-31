@@ -53,7 +53,7 @@ class StoryController extends BaseController {
             $story->content = $_POST['content'];
             $story->user_id = $_POST['user_id'];
             $story->date_posted = $_POST['date_posted'];
-            $story->save();
+            $succes = $story->save();
         };
 
         // load the view
@@ -62,6 +62,12 @@ class StoryController extends BaseController {
             'story' => $story,
             'users' => $users
         ]);
+
+        if($succes) {
+            header('Location: /stories');
+        } else {
+            echo 'error';
+        }
     }
 
     
@@ -101,11 +107,16 @@ class StoryController extends BaseController {
     }
 
     public static function detail($id) {
+        // find the story
         $story = Story::find($id);
+
+        // get the author of the story
+        $user = $story->getUser();
 
         self::loadView('/stories/detail', [
             'title' => 'Story detail',
-            'story' => $story
+            'story' => $story,
+            'user' => $user
         ]);
     }
 
