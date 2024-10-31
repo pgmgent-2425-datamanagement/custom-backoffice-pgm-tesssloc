@@ -9,6 +9,22 @@ body {
 img {
     max-width: 100%;
     height: auto;
+    border-radius: 0.2rem;
+}
+
+/* cards */
+
+.card_list {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 65rem) {
+    .card_list {
+        gap: 0rem;
+    }
 }
 
 .card {
@@ -16,11 +32,27 @@ img {
     align-items: center;
     gap: 1rem;
     margin-left: -2.5rem;
+    background-color: green;
+    width: 10rem;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+@media (min-width: 65rem) {
+    .card {
+        flex-direction: row;
+        margin-bottom: 2rem;
+        justify-content: space-between;
+        padding: 1rem;
+        width: 100%;
+    }
 }
 
 .card__item {
     background-color: rgb(204, 198, 198);
     height: 8rem;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,8 +69,49 @@ img {
     width: 15rem;
 }
 
+/* edit */
+
+
 .edit_form {
     display: flex;
     gap: 1rem;
     flex-direction: column;
+}
+
+/* buttons */
+
+.button {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+    color: white;
+    text-decoration: none;
+}
+
+.delete_button {
+    background-color: rgb(194, 37, 37);
+}
+
+.delete_button:hover {
+    background-color: rgb(241, 95, 51);
+    color: black;
+}
+
+.edit_button {
+    background-color: rgb(37, 37, 194);
+}
+
+.edit_button:hover {
+    background-color: rgb(61, 140, 243);
+    color: #000;
+}
+
+.add_button {
+    background-color: rgb(37, 194, 45);
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.add_button:hover {
+    background-color: rgb(67, 238, 15);
+    color: black;
 }

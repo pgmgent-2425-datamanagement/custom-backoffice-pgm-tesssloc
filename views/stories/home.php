@@ -27,4 +27,4 @@
     ?>
 </ul>
 
-<a href="/stories/add">Add a story</a>
+<a class="add_button button" href="/stories/add">Add a story</a>

@@ -5,6 +5,6 @@
     <div class="card__email card__item"><?= $user->email ?></div>
     <a href="/users/<?= $user->id ?>" class="card__link card__item">View more</a>
     <a href="/stories?user_id=<?= $user->id ?>&search=<?= $_GET['search'] ?? '' ?>" class="card__link card__item">View Stories</a>
-    <a href="/users/edit/<?= $user->id ?>">Edit</a>
-    <a href="/users/delete/<?= $user->id ?>">Delete</a>
+    <a class="edit_button button" href="/users/edit/<?= $user->id ?>">Edit</a>
+    <a class="delete_button button" href="/users/delete/<?= $user->id ?>">Delete</a>
 </div>

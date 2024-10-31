@@ -1,6 +1,6 @@
 <h2>Users</h2>
 
-<ul>
+<ul class="card_list">
     <?php
         foreach ($users as $user) {
             include __DIR__ . "/../partials/users.php";
@@ -8,4 +8,4 @@
     ?>
 </ul>
 
-<a href="/users/add">Add a user</a>
+<a class="add_button button" href="/users/add">Add a user</a>
