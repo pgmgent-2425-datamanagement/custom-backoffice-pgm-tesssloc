@@ -4,7 +4,7 @@
     <?php if (!empty($_GET['user_id'])): ?>
         <input type="hidden" name="user_id" value="<?= $_GET['user_id'] ?>">
     <?php endif; ?>
-        <div>
+        <div class="search_form form">
             <label for="search">Zoek:</label>
             <input type="text" name="search" placeholder="Zoekterm" value="<?= $search ?>">
         </div>

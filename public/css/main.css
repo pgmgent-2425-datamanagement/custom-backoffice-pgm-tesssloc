@@ -154,7 +154,7 @@ nav a:hover {
     border-radius: 0.5rem;
 }
 
-/* edit & add */
+/* forms */
 
 .file_card {
     width: 100%;
@@ -204,6 +204,11 @@ nav a:hover {
         margin-bottom: 1rem;
         flex-direction: row;
     }
+}
+
+.search_form input, .search_form select {
+    padding: 0.4rem;
+    font-size: 1rem;
 }
 
 /* buttons */
