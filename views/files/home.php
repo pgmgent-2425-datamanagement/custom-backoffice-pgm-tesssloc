@@ -13,3 +13,5 @@
     <?php endif; ?>
 <?php endforeach; ?>
 </ul>
+
+<?php print_r($list); ?>

@@ -43,3 +43,6 @@ $router->get('/files', 'FileController@list');
 
 $router->get('/files/delete/(.+)', 'FileController@delete');
 $router->post('/files/delete/(.+)', 'FileController@delete');
+
+$router->get('/files/edit/(.+)', 'FileController@edit');
+$router->post('/files/edit/(.+)', 'FileController@edit');
