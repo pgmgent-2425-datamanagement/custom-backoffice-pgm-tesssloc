@@ -2,15 +2,21 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
+
 class FileController extends BaseController {
     public static function list () {
         $list = scandir(BASE_DIR . '/public/images');
-        
+
+        print_r($list);
+
+
         // load view
         self::loadView('/files/home', [
             'list' => $list
         ]);
     }
+
 
     public static function delete ($file) {
         if ($file) {
@@ -44,5 +50,37 @@ class FileController extends BaseController {
                 'file' => $file
             ]);
         }
+    }
+
+    public static function add () {
+        // get all users
+        $users = User::all();
+
+        // load view
+        self::loadView('/files/add', [
+            'title' => 'Add file',
+            'users' => $users,
+        ]);
+    }
+
+    public static function store () {
+        $name = $_FILES['profilePic']['name'];
+        $tmp = $_FILES['profilePic']['tmp_name'];
+        $to_folder = BASE_DIR . '/public/images/';
+
+        $uuid = uniqid() . '-' . $name;
+
+        move_uploaded_file($tmp, $to_folder . $uuid);
+
+        $user_id = $_POST['user_id'];
+
+        $user = User::find($user_id);
+
+        print_r($user);
+
+        $user->profilePic = $uuid;
+        $user->save();
+
+        header('Location: /files');
     }
 } 
