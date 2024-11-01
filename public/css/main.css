@@ -150,7 +150,7 @@ nav a:hover {
     border-radius: 0.5rem;
 }
 
-/* edit */
+/* edit & add */
 
 .file_card {
     width: 100%;
@@ -166,20 +166,40 @@ nav a:hover {
     }
 }
 
-.edit_form {
+.form {
     display: flex;
     gap: 1rem;
     flex-direction: column;
 }
 
-.edit_form input {
+.form input {
     padding: 0.4rem;
     font-size: 1rem;
+    flex-grow: 1;
 }
 
-.edit_form select {
+.form select, .form textarea {
     padding: 0.4rem;
     font-size: 1rem;
+    flex-grow: 1;
+}
+
+.add_form__item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-direction: column;
+}
+
+@media (min-width: 20rem) {
+    .add_form__item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        flex-direction: row;
+    }
 }
 
 /* buttons */
@@ -253,5 +273,9 @@ nav a:hover {
 
 /* detail */
 .detail__posted {
+    padding-bottom: 2rem;
+}
+
+.detail__item {
     padding-bottom: 1rem;
 }

@@ -47,6 +47,9 @@ class StoryController extends BaseController {
         // get all users
         $users = User::all();
 
+        // set $succes
+        $succes = false;
+
         // edit the story
         if(isset($_POST['title']) && isset($_POST['content']) && isset($_POST['user_id']) && isset($_POST['date_posted'])) {
             $story->title = $_POST['title'];
@@ -65,8 +68,6 @@ class StoryController extends BaseController {
 
         if($succes) {
             header('Location: /stories');
-        } else {
-            echo 'error';
         }
     }
 

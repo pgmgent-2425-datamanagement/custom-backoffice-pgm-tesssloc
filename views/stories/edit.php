@@ -1,7 +1,7 @@
 <h2>Edit</h2>
-<form method="POST" action="/stories/edit/<?=$story->id?>" class="edit_form">
+<form method="POST" action="/stories/edit/<?=$story->id?>" class="edit_form form">
     <input type="text" name="title" value="<?=$story->title?>"></input>
-    <input type="text" name="content" value="<?=$story->content?>"></input>
+    <textarea rows="10" name="content"><?=$story->content?></textarea>
     <select name="user_id" id="users">
         <?php
             foreach ($users as $user) {
