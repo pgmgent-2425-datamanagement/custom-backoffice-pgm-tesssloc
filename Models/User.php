@@ -49,4 +49,14 @@ class User extends BaseModel {
             
             return self::castToModel($db_items);
         }
+
+        // get the user from a file
+        protected function findByProfilePic($file) {
+            $sql = "SELECT * FROM users WHERE profilePic = :profilePic LIMIT 1";
+            $pdo_statement = $this->db->prepare($sql);
+            $pdo_statement->execute([':profilePic' => $file]);
+            $db_items = $pdo_statement->fetch();
+        
+            return self::castToModel($db_items);
+        }
 }

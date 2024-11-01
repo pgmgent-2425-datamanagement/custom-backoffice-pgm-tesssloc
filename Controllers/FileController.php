@@ -27,6 +27,9 @@ class FileController extends BaseController {
     }
 
     public static function edit($file) {
+        // get all users
+        $users = User::all();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $uploadDir = BASE_DIR . '/public/images/';
             $filePath = $uploadDir . $file;
@@ -45,9 +48,15 @@ class FileController extends BaseController {
     
             header('Location: /files');
             exit;
+
+        // get the profile of the file
+        $selectedUser = $file->getUser();
+        
         } else {
             self::loadView('/files/edit', [
-                'file' => $file
+                'file' => $file,
+                'users' => $users,
+                'selectedUser' => $selectedUser
             ]);
         }
     }
