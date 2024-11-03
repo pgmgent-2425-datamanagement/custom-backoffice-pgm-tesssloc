@@ -18,6 +18,8 @@ class UserController extends BaseController {
     public static function edit ($id) {
         $user = User::find($id);
 
+        $newProfilePic = $user->profilePic;
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // find the user
 
@@ -26,24 +28,29 @@ class UserController extends BaseController {
         $filePath = $uploadDir . $user->profilePic;
 
         // edit the user
-        if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['username']) && isset($_POST['email']) && isset($_FILES['profilePic'])) {
-            
+        if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['username']) && isset($_POST['email'])) {
+            if (isset($_FILES['profilePic']) && $_FILES['profilePic']['error'] === UPLOAD_ERR_OK) {
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
 
-            if (file_exists($filePath)) {
-                unlink($filePath);
+                // upload new file
+                $uuid = uniqid() . '-' . $_FILES['profilePic']['name'];
+
+                move_uploaded_file($_FILES['profilePic']['tmp_name'], $uploadDir . $uuid);
+
+                $newProfilePic = $uuid;
             }
 
-            // upload new file
-            $uuid = uniqid() . '-' . $_FILES['profilePic']['name'];
-
-            move_uploaded_file($_FILES['profilePic']['tmp_name'], $uploadDir . $uuid);
+            if (!empty($_POST['password'])) {
+                $user->password = $_POST['password'];
+            }
 
             $user->firstName = $_POST['firstName'];
             $user->lastName = $_POST['lastName'];
             $user->username = $_POST['username'];
-            $user->password = $_POST['password'];
             $user->email = $_POST['email'];
-            $user->profilePic = $uuid;
+            $user->profilePic = $newProfilePic;
             $user->save();
 
             header('Location: /users');
