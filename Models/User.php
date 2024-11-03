@@ -59,4 +59,20 @@ class User extends BaseModel {
         
             return self::castToModel($db_items);
         }
+
+        // search in users
+        protected function search($search) {
+            $sql = 'SELECT * FROM `' . $this->table . '`
+                WHERE (username LIKE :search Or firstName LIKE :search Or lastName LIKE :search Or email LIKE :search)
+            ';
+
+            $params = [':search' => '%' . $search . '%'];
+
+            $pdo_statement = $this->db->prepare($sql);
+            $pdo_statement->execute($params);
+
+            $db_items = $pdo_statement->fetchAll(); 
+            
+            return self::castToModel($db_items);
+        }
 }

@@ -122,7 +122,11 @@ class StoryController extends BaseController {
     }
 
     public static function get_stories() {
-        $stories = Story::all();
+        $search = $_GET['search'] ?? '';
+        $user_id = $_GET['user_id'] ?? '';
+        $sort = $_GET['sort'] ?? '';
+
+        $stories = Story::search($search, $user_id, $sort);
         header("Content-type:application/json");
 
         echo json_encode($stories);

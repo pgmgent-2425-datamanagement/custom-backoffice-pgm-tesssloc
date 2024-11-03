@@ -117,7 +117,9 @@ class UserController extends BaseController {
     }
 
     public static function get_users() {
-        $users = User::all();
+        $search = $_GET['search'] ?? '';
+
+        $users = User::search($search);
         header("Content-type:application/json");
 
         echo json_encode($users);
