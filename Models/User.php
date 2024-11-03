@@ -36,7 +36,6 @@ class User extends BaseModel {
         }
 
         protected function allWithStories () {
-
             $sql = 'SELECT *, count(user_id) as numberOfStories FROM users
                 LEFT JOIN stories ON stories.user_id = users.id
                 group by users.id

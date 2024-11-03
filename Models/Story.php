@@ -65,4 +65,20 @@ class Story extends BaseModel {
     public function getUser() {
         return User::find($this->user_id);
     }
+
+    // all stories per day
+    protected function amountOfStoriesPerDay () {
+        $sql = 'SELECT DATE(date_posted) AS posting_date, COUNT(*) AS numberOfStories
+            FROM stories
+            GROUP BY posting_date
+            ORDER BY posting_date DESC
+            LIMIT 10;
+        ';
+        $pdo_statement = $this->db->prepare($sql);
+        $pdo_statement->execute();
+
+        $db_items = $pdo_statement->fetchAll(); 
+        
+        return self::castToModel($db_items);
+    }
 }

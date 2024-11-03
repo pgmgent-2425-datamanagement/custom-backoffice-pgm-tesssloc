@@ -1,7 +1,5 @@
 <h2>Welcome admin</h2>
 
-<h3>Stories per user</h3>
-
 <?php 
 $userLabels = [];
 foreach ($users as $user) {
@@ -12,9 +10,21 @@ foreach ($users as $user) {
 $data = [];
 foreach ($users as $user) {
     $data[] = $user->numberOfStories;
-}; 
+};
+
+$amountOfStories = [];
+foreach ($stories as $story) {
+    $amountOfStories[] = $story->numberOfStories;
+};
+
+$days = [];
+foreach ($stories as $story) {
+    $days[] = $story->posting_date;
+};
 
 ?>
+
+<h3>Stories per user</h3>
 
 <div>
   <canvas id="myChart"></canvas>
@@ -45,6 +55,7 @@ foreach ($users as $user) {
   });
 </script>
 
+<h3>Stories posted per day</h3>
 
 <div>
   <canvas id="chart2"></canvas>
@@ -56,12 +67,12 @@ foreach ($users as $user) {
   const chart = document.getElementById('chart2');
 
   new Chart(chart, {
-    type: 'doughnut',
+    type: 'line',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: <?= json_encode($days) ?>,
       datasets: [{
         label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        data:  <?= json_encode($amountOfStories) ?>,
         borderWidth: 1
       }]
     },
