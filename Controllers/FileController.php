@@ -42,17 +42,19 @@ class FileController extends BaseController {
             }
 
             $oldFile = $_POST['oldFile'];
+
             $user = User::findByProfilePic($oldFile);
             $user->profilePic = $uuid;
             $user->save();
-    
-            print_r($oldFile);
-            
+                
             header('Location: /files');
             exit;
-        } else {
+        } else {            
+            $selectedUser = User::findByProfilePic($file);
+            
             self::loadView('/files/edit', [
-                'file' => $file
+                'file' => $file,
+                'selectedUser' => $selectedUser,
             ]);
         }
     }
