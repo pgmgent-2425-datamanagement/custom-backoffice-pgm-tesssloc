@@ -4,12 +4,14 @@ body {
     padding: 1rem;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.5;
+    overflow-x: hidden;
 }
 
 img {
     max-width: 100%;
     height: auto;
     border-radius: 0.2rem;
+    max-height: 100%;
 }
 
 footer {
@@ -152,6 +154,7 @@ nav a:hover {
 
 .file_card__img {
     border-radius: 0.5rem;
+    max-width: 80%;
 }
 
 /* forms */
