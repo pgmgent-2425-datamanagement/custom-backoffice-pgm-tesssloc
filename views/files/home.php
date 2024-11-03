@@ -14,6 +14,6 @@
 <?php endforeach; ?>
 </ul>
 
-<a class="add_button button" href="/files/add">Add a story</a>
+<a class="add_button button" href="/files/add">Add a file</a>
 
 <?php print_r($list); ?>

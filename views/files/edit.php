@@ -12,5 +12,8 @@
         </select>
     </div>
     <input type="file" accept="image/*" name="newFile"></input>
+    <input type="hidden" value="<?=$file?>" name="oldFile"></input>
     <input class="button submit_button" type="submit" value="Save">
 </form>
+
+<?php print_r($file); ?>

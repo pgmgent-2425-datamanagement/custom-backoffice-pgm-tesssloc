@@ -8,9 +8,6 @@ class FileController extends BaseController {
     public static function list () {
         $list = scandir(BASE_DIR . '/public/images');
 
-        print_r($list);
-
-
         // load view
         self::loadView('/files/home', [
             'list' => $list
@@ -27,9 +24,6 @@ class FileController extends BaseController {
     }
 
     public static function edit($file) {
-        // get all users
-        $users = User::all();
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $uploadDir = BASE_DIR . '/public/images/';
             $filePath = $uploadDir . $file;
@@ -40,23 +34,25 @@ class FileController extends BaseController {
                 if (file_exists($filePath)) {
                     unlink($filePath);
                 }
-    
+
                 // upload new file
-                $uploadedFilePath = $uploadDir . basename($_FILES['newFile']['name']);
-                move_uploaded_file($_FILES['newFile']['tmp_name'], $uploadedFilePath);
+                $uuid = uniqid() . '-' . $_FILES['newFile']['name'];
+
+                move_uploaded_file($_FILES['newFile']['tmp_name'], $uploadDir . $uuid);
             }
+
+            $oldFile = $_POST['oldFile'];
+            $user = User::findByProfilePic($oldFile);
+            $user->profilePic = $uuid;
+            $user->save();
     
+            print_r($oldFile);
+            
             header('Location: /files');
             exit;
-
-        // get the profile of the file
-        $selectedUser = $file->getUser();
-        
         } else {
             self::loadView('/files/edit', [
-                'file' => $file,
-                'users' => $users,
-                'selectedUser' => $selectedUser
+                'file' => $file
             ]);
         }
     }
@@ -84,8 +80,6 @@ class FileController extends BaseController {
         $user_id = $_POST['user_id'];
 
         $user = User::find($user_id);
-
-        print_r($user);
 
         $user->profilePic = $uuid;
         $user->save();
