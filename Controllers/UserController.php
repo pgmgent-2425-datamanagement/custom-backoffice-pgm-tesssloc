@@ -16,25 +16,46 @@ class UserController extends BaseController {
     }
 
     public static function edit ($id) {
-        // find the user
         $user = User::find($id);
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // find the user
+
+        // directories
+        $uploadDir = BASE_DIR . '/public/images/';
+        $filePath = $uploadDir . $user->profilePic;
+
         // edit the user
-        if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['username']) && isset($_POST['email']) && isset($_POST['profilePic'])) {
+        if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['username']) && isset($_POST['email']) && isset($_FILES['profilePic'])) {
+            
+
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+
+            // upload new file
+            $uuid = uniqid() . '-' . $_FILES['profilePic']['name'];
+
+            move_uploaded_file($_FILES['profilePic']['tmp_name'], $uploadDir . $uuid);
+
             $user->firstName = $_POST['firstName'];
             $user->lastName = $_POST['lastName'];
             $user->username = $_POST['username'];
             $user->password = $_POST['password'];
             $user->email = $_POST['email'];
-            $user->profilePic = $_POST['profilePic'];
+            $user->profilePic = $uuid;
             $user->save();
+
+            header('Location: /users');
         }
 
-        // load the view
-        self::loadView('/users/edit', [
-            'title' => 'Edit User',
-            'user' => $user
-        ]);
+        } else {            
+            // load the view
+            self::loadView('/users/edit', [
+                'title' => 'Edit User',
+                'user' => $user
+            ]);
+        }
     }
     
     public static function add () {
