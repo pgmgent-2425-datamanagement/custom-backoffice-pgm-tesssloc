@@ -150,6 +150,16 @@ nav a:hover {
     color: black;
 }
 
+.card__profilePic__detail {
+    background-color: white;
+    justify-content: flex-start;
+    padding: 0rem 0rem 1rem;
+}
+
+.card__email {
+    word-break: break-all;
+}
+
 /* file card */
 
 .file_card__img {
