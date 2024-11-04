@@ -39,6 +39,7 @@ class User extends BaseModel {
             $sql = 'SELECT *, count(user_id) as numberOfStories FROM users
                 LEFT JOIN stories ON stories.user_id = users.id
                 group by users.id
+                LIMIT 10
                 ;
             ';
             $pdo_statement = $this->db->prepare($sql);

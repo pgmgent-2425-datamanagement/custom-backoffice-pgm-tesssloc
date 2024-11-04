@@ -24,7 +24,7 @@ foreach ($stories as $story) {
 
 ?>
 
-<h3>Stories per user</h3>
+<h3>Stories per user (top 10)</h3>
 
 <div>
   <canvas id="myChart"></canvas>
@@ -48,14 +48,17 @@ foreach ($stories as $story) {
     options: {
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: true,
+          ticks: {
+            stepSize: 1
+          }
         }
       }
     }
   });
 </script>
 
-<h3>Stories posted per day</h3>
+<h3>Stories posted per day (10 latest days)</h3>
 
 <div>
   <canvas id="chart2"></canvas>
@@ -79,7 +82,10 @@ foreach ($stories as $story) {
     options: {
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: true,
+          ticks: {
+            stepSize: 1
+          }
         }
       }
     }
