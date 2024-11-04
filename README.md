@@ -15,3 +15,9 @@ cd naar COSTUM-BACKOFFICE-PGM-TESSSLOC
 ddev composer install
 
 ddev start
+
+## api
+De api is beschikbaar op de url /api/get_users & /api/get_stories
+
+Er kan gezocht worden op de api:
+Bv. /api/get_users?search=zoekterm
