@@ -1,5 +1,5 @@
 <div class="detail">
-    <h3 class="detail__title detail__item">Titel: <?= $story->title ?></h3>
+    <h3 class="detail__title detail__item">Title: <?= $story->title ?></h3>
     <div class="detail__content detail__item">Content: <?= $story->content ?></div>
     <div class="detail__user detail__item">Author: <a href="/users/<?= $user->id ?>"><?= $user->username ?></a></div>
     <div class="detail__posted detail__item">Posted on: <?= $story->date_posted ?></div>
