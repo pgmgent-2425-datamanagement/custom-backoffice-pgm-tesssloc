@@ -16,6 +16,8 @@ ddev composer install
 
 ddev start
 
+env variables zijn te vinden in example.env
+
 ## api
 De api is beschikbaar op de url /api/get_users & /api/get_stories
 
