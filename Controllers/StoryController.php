@@ -18,13 +18,6 @@ class StoryController extends BaseController {
         // get stories
         $stories = Story::search($search, $user_id, $sort);
 
-        if ($sort === 'alphabetical') {
-            sort($stories);
-        } else
-        if ($sort === 'alphabetical_r') {
-            rsort($stories);
-        }
-
         // get user for story
         foreach ($stories as $story) {
             $story->user = $story->getUser();

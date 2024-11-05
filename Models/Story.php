@@ -48,8 +48,17 @@ class Story extends BaseModel {
 
         if ($sort === 'date_posted_r') {
             $sql .= ' ORDER BY date_posted ASC';
-        }
-        if ($sort !== 'date_posted_r') {
+        } else
+        if ($sort === 'date_posted') {
+            $sql .= ' ORDER BY date_posted DESC';
+        } else
+        if ($sort === 'alphabetical') {
+            $sql .= ' ORDER BY title DESC';
+        } else
+        if ($sort === 'alphabetical_r') {
+            $sql .= ' ORDER BY title ASC';
+        } else
+        if ($sort === 'standard') {
             $sql .= ' ORDER BY date_posted DESC';
         }
 
