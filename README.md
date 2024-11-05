@@ -23,3 +23,5 @@ De api is beschikbaar op de url /api/get_users & /api/get_stories
 
 Er kan gezocht worden op de api:
 Bv. /api/get_users?search=zoekterm
+
+Er kunnnen stories toegevoegd worden via de api via de url /api/add_story
