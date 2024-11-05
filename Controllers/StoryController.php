@@ -126,4 +126,22 @@ class StoryController extends BaseController {
 
         exit;
     }
+
+    public static function add_story() {
+        $input = json_decode(file_get_contents('php://input'), true);
+
+        $story = new Story();
+        $story->title = $input['title'] ?? null;
+        $story->content = $input['content'] ?? null;
+        $story->user_id = $input['user_id'] ?? null;
+        $story->date_posted = date('Y-m-d H:i:s');
+        $succes = $story->save();
+
+
+        if ($succes) {
+            echo json_encode($story);
+        } else {
+            echo 'error';
+        }
+    }
 }

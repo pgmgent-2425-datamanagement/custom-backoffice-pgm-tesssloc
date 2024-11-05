@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Story;
 use App\Models\User;
 
 class UserController extends BaseController {
@@ -118,6 +119,13 @@ class UserController extends BaseController {
 
     public static function get_users() {
         $search = $_GET['search'] ?? '';
+
+        $story = new Story();
+        $story->user_id = $_GET['user_id'] ?? '';
+        $story->title = $_GET['title'] ?? '';
+        $story->content = $_GET['content'] ?? '';
+        $story->date_posted = date('Y-m-d H:i:s');
+        $succes = $story->save();
 
         $users = User::search($search);
         header("Content-type:application/json");

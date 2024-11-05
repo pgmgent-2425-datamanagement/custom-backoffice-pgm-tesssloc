@@ -20,6 +20,7 @@ $router->get('/stories/add', 'StoryController@add');
 $router->post('/stories/add', 'StoryController@store');
 
 $router->get('/api/get_stories', 'StoryController@get_stories');
+$router->post('/api/add_story', 'StoryController@add_story');
 
 // user routes
 $router->get('/users', 'UserController@list');
