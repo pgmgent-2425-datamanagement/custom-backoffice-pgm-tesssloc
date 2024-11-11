@@ -16,6 +16,9 @@ ddev start
 
 env variables zijn te vinden in example.env
 
+## database
+Wachtwoord: root
+
 ## api
 De api is beschikbaar op de url /api/get_users & /api/get_stories
 
