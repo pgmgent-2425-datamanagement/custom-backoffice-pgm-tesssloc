@@ -44,7 +44,9 @@ class UserController extends BaseController {
             }
 
             if (!empty($_POST['password'])) {
-                $user->password = $_POST['password'];
+                $nonHashedPassword = $_POST['password'];
+                $password = password_hash($nonHashedPassword, PASSWORD_DEFAULT);
+                $user->password = $password;
             }
 
             $user->firstName = $_POST['firstName'];

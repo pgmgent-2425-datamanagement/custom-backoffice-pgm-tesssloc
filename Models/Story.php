@@ -2,6 +2,8 @@
 namespace App\Models;
 
 class Story extends BaseModel {
+    public $id;
+    
     // updates the new values of an object
     public function save() {
         $sql = "UPDATE stories SET title = :title, content = :content, user_id = :user_id, date_posted = :date_posted WHERE id = :id";
@@ -53,10 +55,10 @@ class Story extends BaseModel {
             $sql .= ' ORDER BY date_posted DESC';
         } else
         if ($sort === 'alphabetical') {
-            $sql .= ' ORDER BY title DESC';
+            $sql .= ' ORDER BY title ASC';
         } else
         if ($sort === 'alphabetical_r') {
-            $sql .= ' ORDER BY title ASC';
+            $sql .= ' ORDER BY title DESC';
         } else
         if ($sort === 'standard') {
             $sql .= ' ORDER BY date_posted DESC';

@@ -58,7 +58,7 @@ foreach ($stories as $story) {
   });
 </script>
 
-<h3>Stories posted per day (10 latest days)</h3>
+<h3>Stories posted per day (10 latest days on which stories were posted)</h3>
 
 <div>
   <canvas id="chart2"></canvas>

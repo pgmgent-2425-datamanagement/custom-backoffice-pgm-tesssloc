@@ -19,7 +19,7 @@
         </select>
     </div>
     <div class="add_form__item">
-        <label for="date_posted">Content:</label>
+        <label for="date_posted">Posted on:</label>
         <input type="datetime-local" name="date_posted"></input>
     </div>
     <input class="button submit_button" type="submit" value="Add">
